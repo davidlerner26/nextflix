@@ -1,16 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./navbar.module.css";
 
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import { magic } from "../../lib/magic-client";
 
-const NavBar = (props) => {
-    const { username } = props;
-
+const NavBar = () => {
     const [showDropdown, setShowDropdown] = useState(false);
-
+    const [username, setUsername] = useState("");
     const router = useRouter();
+
+    useEffect(() => {
+        async function getUsername() {
+            try {
+                const { email } = await magic.user.getMetadata();
+                if (email) {
+                    setUsername(email);
+                }
+            } catch (error) {
+                console.log("Error retrieving email:", error);
+            }
+        }
+        getUsername();
+    }, []);
 
     const handleOnClickHome = (e) => {
         e.preventDefault();
@@ -35,8 +48,8 @@ const NavBar = (props) => {
                         <Image
                             src="/static/netflix.svg"
                             alt="Netflix logo"
-                            width="128"
-                            height="34"
+                            width="128px"
+                            height="34px"
                         />
                     </div>
                 </a>
@@ -56,15 +69,15 @@ const NavBar = (props) => {
                             <Image
                                 src="/static/expand_more.svg"
                                 alt="Expand more"
-                                width="24"
-                                height="24"
+                                width="24px"
+                                height="24px"
                             />
                         </button>
                         {showDropdown && (
                             <div className={styles.navDropdown}>
                                 <div>
-                                    <Link href="/login" className={styles.linkName}>
-                                        Sign out
+                                    <Link href="/login">
+                                        <a className={styles.linkName}>Sign out</a>
                                     </Link>
                                     <div className={styles.lineWrapper}></div>
                                 </div>
