@@ -26,7 +26,7 @@ You need to setup a few API keys for this project to be setup correctly otherwis
 - [Hasura Admin URL and JWT Secret](https://hasura.io/docs/latest/graphql/cloud/projects/create.html#create-project)
 - [Youtube API Key](https://developers.google.com/youtube/v3/getting-started)
 
-For that, you need to create a .env.local file in your project as [shown in docs](https://nextjs.org/docs/basic-features/environment-variables#loading-environment-variables) that will look like this:
+For that, you need to create a .env.local file in your project as [shown in docs](https://nextjs.org/docs/pages/guides/environment-variables#loading-environment-variables) that will look like this:
 
 ```
 NEXT_PUBLIC_HASURA_ADMIN_URL=<REPLACE THIS>
@@ -38,37 +38,3 @@ YOUTUBE_API_KEY=<REPLACE THIS>
 ```
 
 You can retrieve the above environment values by referring their docs linked above and once retrieved, paste above accordingly.
-
-### **_ Important: Videos from Youtube _**
-
-During local development, we recommend you to add the environment variable `DEVELOPMENT=true` as that won't fetch videos from the Youtube API and instead access it from `data/videos.json`. Youtube API does have a [quota](https://developers.google.com/youtube/v3/determine_quota_cost?hl=en) and this way you can continue doing local development without worrying about running out of API calls.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-You can take a look at my blog for more Next.js related content: [Blog](https://kulkarniankita.com/blog)
-
---
-
-
-## A Frontend Newsletter you'll love to help you grow as a Developer
-In order to help you grow as a developer, You can subscribe to <a href="https://frontendsnacks.dev/?utm_source=github&utm_medium=footer" target="_blank">Frontend Snacks here</a>
-- I'll teach you one code snippet visually at a time
-- Share the latest frontend news/gossip 
-- Share 1 Snack for thought
-
-<a href="https://frontendsnacks.dev/?utm_source=github&utm_medium=footer" target="_blank">
-  <img src="https://www.frontendsnacks.dev/images/og-default.png" width="800" height="400" /> 
-</a>
